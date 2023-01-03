@@ -77,9 +77,7 @@ async function saveReport1Preferences(colorValue)
     var preferenceName  = "chris pref 1"
     var reportName      = "report1";
     var itemName        = "color";
-    var itemValue       = "red";
-    //var preferenceValue = "red";
-    var preferenceValue = colorValue;
+    var itemValue       = colorValue;
     var url = "/api/preference/save/" + userId + "/" + practiceId + "/" + preferenceName + "/" + reportName + "/" + itemName + "/" + itemValue;
     console.log("saveReport1Preferences() - url: " + url);
     //
