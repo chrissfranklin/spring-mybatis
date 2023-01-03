@@ -1,0 +1,21 @@
+/* styles.css */
+/*
+#dataSpinnerDiv { display: none; }
+body.busy .spinner { display:block !important; }
+Or use visibility:
+
+#dataSpinnerDiv { visibility:hidden; }
+body.busy .spinner { visibility:visible !important; }
+*/
+
+
+.myspinner {
+    display: block;
+    /*position: fixed; */
+    position: absolute;
+    z-index: 1031; /* High z-index so it is on top of the page */
+    top: 50%;
+    right: 50%; /* or: left: 50%; */
+    margin-top: -..px; /* half of the elements height */
+    margin-right: -..px; /* half of the elements widht */
+}

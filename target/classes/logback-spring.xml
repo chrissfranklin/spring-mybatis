@@ -1,0 +1,76 @@
+<configuration debug="true">
+
+  <!-- CONSOLE Appender -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <!--< withJansi>true</withJansi> -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) [%thread] [%F:%L] %cyan(%-40logger{50}) - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Rolling File Appender just for com.msh.lynx.analytics code -->
+  <!--
+  <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>analytics-log-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>30</maxHistory>
+      <totalSizeCap>3GB</totalSizeCap>
+    </rollingPolicy>
+
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>3MB</maxFileSize>
+    </triggeringPolicy>
+
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] [%F:%L] %-40logger{50} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  -->
+
+  <!-- Simple FILE logger which creates a new (replaces) log file every restart - use this in DEV -->
+  <appender name="DEV_FILE" class="ch.qos.logback.core.FileAppender">
+    <file>analytics-dev.log</file>
+    <append>false</append>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] [%F:%L] %-40logger{50} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="org.example" level="TRACE" additivity="false">
+    <!-- <appender-ref ref="ROLLING_FILE" /> -->
+	  <appender-ref ref="DEV_FILE" />
+    <appender-ref ref="CONSOLE" />
+  </logger>
+
+  <logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+    <appender-ref ref="DEV_FILE" />
+    <appender-ref ref="CONSOLE" />
+  </logger>
+
+  <logger name="org.springframework.jdbc.core.JdbcTemplate" level="INFO" additivity="false">
+    <appender-ref ref="DEV_FILE" />
+    <appender-ref ref="CONSOLE" />
+  </logger>
+
+
+<!--
+  <logger name="org.springframework.boot" level="TRACE" additivity="false">
+	  <appender-ref ref="DEV_FILE" />
+    <appender-ref ref="CONSOLE" />
+  </logger>
+  <logger name="org.springframework.beans" level="TRACE" additivity="false">
+	  <appender-ref ref="DEV_FILE" />
+    <appender-ref ref="CONSOLE" />
+  </logger>
+-->
+
+
+
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="DEV_FILE" />
+  </root>
+
+</configuration>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="menu">
+
+  <!-- begin: main nav -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a th:href="@{/}" class="navbar-brand"><i>index</i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a th:href="@{/list}"                     id="mainMenuA"                     th:class="${#httpServletRequest.requestURI.contains('list')}                     ? 'nav-link active' : 'nav-link'">List</a>
+          <a th:href="@{/report1}"                  id="mainMenuA"                     th:class="${#httpServletRequest.requestURI.contains('report1')}                  ? 'nav-link active' : 'nav-link'">Report1</a>
+          <a th:href="@{/report2}"                  id="mainMenuA"                     th:class="${#httpServletRequest.requestURI.contains('report2')}                  ? 'nav-link active' : 'nav-link'">Report2</a>
+          <!-- <span id="viewDiv" class="navbar-text text-primary h6"></span> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- end: main nav -->
+</div>
+
+<div th:fragment="littlemenu">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div>
+          <a th:href="@{/}" class="navbar-brand">index</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+</body>
+</html>
