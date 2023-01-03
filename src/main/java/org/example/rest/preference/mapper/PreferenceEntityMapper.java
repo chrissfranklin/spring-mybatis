@@ -55,27 +55,4 @@ public interface PreferenceEntityMapper
     String preferenceName
   );
 
-
 }
-
-
-
-
-
-
-  /*
-  @Select
-  (
-    "SELECT * FROM t_preference WHERE user_id = #{userId} AND practice_id = #{practiceId}"
-  )
-  @ResultMap("preferenceItemEntityResultMap")
-  List<PreferenceEntity> getPreferenceByUserIdAndPracticeId
-  (
-    @Param("userId") int userId,
-    @Param("practiceId") int practiceId
-  );
-  */
-
-
-//@Result(property = "preferenceItemEntityList", javaType=List.class, column = "report_name",
-//  many = @Many(select = "selectItems"))

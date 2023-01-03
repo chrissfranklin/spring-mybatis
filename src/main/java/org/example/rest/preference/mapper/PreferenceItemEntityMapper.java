@@ -86,19 +86,3 @@ public interface PreferenceItemEntityMapper
   );
 
 }
-
-
-
-
-
-  /*
-  @Select("SELECT * FROM t_preference_item WHERE report_name = #{reportName} ")
-  @Results({
-    @Result(property = "id",         column = "id"),
-    @Result(property = "reportName", column = "report_name"),
-    @Result(property = "itemName",   column = "item_name"),
-    @Result(property = "itemValue",  column = "item_value")
-  })
-  List<PreferenceItemEntity> selectItemsByReportName(@Param("reportName") String reportName);
-  */
-

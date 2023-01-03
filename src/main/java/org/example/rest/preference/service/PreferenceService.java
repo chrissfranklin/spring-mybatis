@@ -7,10 +7,7 @@ import org.example.rest.preference.mapper.PreferenceEntityMapper;
 import org.example.rest.preference.mapper.PreferenceItemEntityMapper;
 import org.example.util.MyTimer;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +27,6 @@ public class PreferenceService extends BaseService
 
   public static final String SPLUNK_EVENT_SQL_PREFERENCESET_QUERY = "SPLUNK_EVENT_SQL_PREFERENCESET_QUERY";
   public static final String SPLUNK_EVENT_SQL_PREFERENCES_QUERY = "SPLUNK_EVENT_SQL_PREFERENCES_QUERY";
-
   public static final String SPLUNK_EVENT_SQL_PREFERENCES_CHECK_QUERY = "SPLUNK_EVENT_SQL_PREFERENCES_CHECK_QUERY";
 
   @Autowired
@@ -42,7 +38,6 @@ public class PreferenceService extends BaseService
   //
   // FIND
   //
-
   public ResponseEntity<String> findPreferenceEntityListByUserIdAndPracticeId(HttpServletRequest request, int userId, int practiceId)
   {
     log.trace("TOP: PreferenceService.findPreferenceEntityListByUserIdAndPracticeId()...");
@@ -73,8 +68,6 @@ public class PreferenceService extends BaseService
   //
   // SAVE
   //
-
-
   public ResponseEntity<String> savePreference(HttpServletRequest request, int userId, int practiceId, String preferenceName, String reportName, String itemName, String itemValue)
   {
     String rezult = "";
